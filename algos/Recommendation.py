@@ -31,7 +31,7 @@ def pearson_similarity(critics, person1, person2):
     return num/den
 
 def top_matches(critics, person1, rankCount):
-    scores = [pearson_similarity(critics, person1, other) for other in critics if other!=person1]
+    scores = [(pearson_similarity(critics, person1, other),other) for other in critics if other!=person1]
     scores.sort()
     scores.reverse()
     return scores[0:rankCount]
